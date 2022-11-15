@@ -1,13 +1,15 @@
 import { Component, OnInit, ViewChildren } from '@angular/core';
-import { DataService } from '../data.service';
+import { ProductService } from '../services/products.service';
 
-import { Category, Product } from '../product';
+import { Product } from '../models/product.model';
+import { Subcategory } from '../models/subcategory.model';
 import { CartService } from '../cart.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { SideOrderModalComponent } from '../side-order-modal/side-order-modal.component';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { SubcategoryService } from '../services/subcategories.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
 	selector: 'app-home',
@@ -16,19 +18,27 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 })
 export class HomeComponent implements OnInit {
 	tabChangeEvent?: MatTabChangeEvent;
-	appetizers: Product[] = [];
-	appetizers_currentPage = 0;
-	entrees: Product[] = [];
-	entrees_currentPage = 0;
-	sides: Product[] = [];
-	sides_currentPage = 0;
-	beverages: Product[] = [];
-	beverages_currentPage = 0;
-	desserts: Product[] = [];
-	desserts_currentPage = 0;
+	Category: Subcategory[] = [];
+	Category_currentPage = 0;
 	cart: any[] = [];
 	pageLimit1 = 8;
 	pageLimit2 = 5;
+
+	Product: Product = {
+		id: '',
+		name: '',
+		image: "https://d1cft8rz0k7w99.cloudfront.net/n/8/f/c/0/8fc026cdc36fe20694f1990b809ba97e91a73f81_Overthecountermedication_104918_01.png",
+		description: '',
+		price: '',
+		rating: 0,
+	};
+		
+	SubCategory: Subcategory = {
+		id: '',
+		name: '',
+	};
+	product: Product[] | undefined;
+	
 	
 	public get pageLimit() : number {
 		return this.width <= 1024 && this.width > this.height ? this.pageLimit1 : this.width > this.height && this.width > 1024 ? this.pageLimit1 : this.pageLimit2;
@@ -49,31 +59,43 @@ export class HomeComponent implements OnInit {
 	}
 	
 
-	constructor(private dataService: DataService, private cartService: CartService, private succcessPopup: MatSnackBar, public dialog: MatDialog) {}
+	constructor(private subcategoryService: SubcategoryService, private productService: ProductService, private router: Router, private route: ActivatedRoute, private cartService: CartService, private succcessPopup: MatSnackBar, public dialog: MatDialog) {}
 
 	ngOnInit() {
 		this.startUp();
+		this.getProduct();
 	}
 
 	startUp() {
-		this.dataService.sendGetRequest().subscribe((data: Product[]) => {
-			this.appetizers = data.filter((value) => {
-				return value.category == Category.APPETIZER;
+		this.productService.getAll().subscribe((data: Product[]) => {
+			this.Category = data.filter((value) => {
+				return value.name == Subcategory.name;
 			});
-			this.entrees = data.filter((value) => {
-				return value.category == Category.ENTREE;
-			});
-			this.sides = data.filter((value) => {
-				return value.category == Category.SIDE;
-			});
-			this.desserts = data.filter((value) => {
-				return value.category == Category.DESSERT;
-			});
-			this.beverages = data.filter((value) => {
-				return value.category == Category.BEVERAGE;
-			});
+			// this.entrees = data.filter((value) => {
+			// 	return value.category == Category.ENTREE;
+			// });
+			// this.sides = data.filter((value) => {
+			// 	return value.category == Category.SIDE;
+			// });
+			// this.desserts = data.filter((value) => {
+			// 	return value.category == Category.DESSERT;
+			// });
+			// this.beverages = data.filter((value) => {
+			// 	return value.category == Category.BEVERAGE;
+			// });
 		});
 	}
+
+	getProduct(): void {
+		this.productService.getAll().subscribe(
+			(data) => {
+				this.product = data;
+				console.log(data);
+			}
+		);
+	}
+
+	
 	changePage(event: any, property: string) {
 		this[(property + '_currentPage') as keyof this] = event.pageIndex;
 		this.pageLimit = event.pageSize;
@@ -90,7 +112,7 @@ export class HomeComponent implements OnInit {
 			duration: 2000,
 		});
 
-		this.dataService.fetchItem(id).subscribe((product: Product) => {
+		this.productService.get(id).subscribe((product: Product) => {
 			let dialogConfig: MatDialogConfig = {
 				panelClass: 'modal',
 				height: 'max-content',
@@ -116,12 +138,12 @@ export class HomeComponent implements OnInit {
 					//         ...dialogConfig,
 					//     });
 					//     break;
-					case 'entrees':
-						this.dialog.open(SideOrderModalComponent, {
-							data: { category: Category.SIDE, product },
-							...dialogConfig,
-						});
-						break;
+					// case 'entrees':
+					// 	this.dialog.open(SideOrderModalComponent, {
+					// 		data: { category: Category.SIDE, product },
+					// 		...dialogConfig,
+					// 	});
+					// 	break;
 					// case 'desserts':
 					//     this.dialog.open(SideOrderModalComponent, {
 					//         data: { category: Category.BEVERAGE, product },
