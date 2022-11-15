@@ -21,7 +21,7 @@
     content: '';
     width: 14vw;
     height: 0.3vw;
-    background: #5F462B;
+    background: #001A52;
 }
 .summary::before{
     position: absolute;
@@ -29,5 +29,5 @@
     content: '';
     height: 5vw;
     width: 0.3vw;
-    background: #5F462B;
+    background: #001A52;
 }

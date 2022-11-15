@@ -1,4 +1,4 @@
-<section class="bg-[#F5F5F5]">
+<section class="bg-[#E7F1F8]">
     <div class="relative w-[100%]">
         <div
             class="absolute z-10 flex justify-center items-center w-full h-full capitalize"
@@ -13,7 +13,7 @@
         </div>
         <img
         [class]="['w-full', width > height ? 'h-[30vh]' : 'h-[15vh]', 'object-cover', 'brightness-50']"
-            src="https://images.squarespace-cdn.com/content/v1/54fb1c14e4b0a61cf908cda9/1493775538141-BLDK7ZNSG5KNXEQLQJPY/sepia-1-16-1517116rt.jpg?format=1500w"
+            src="https://images.unsplash.com/photo-1584308878768-57d3387b1882?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1182&q=80"
             alt=""
         />
     </div>
@@ -23,7 +23,7 @@
             <table class="w-full" >
                 <div class="scroll-table">
                     <thead
-                        class="bg-[#5F462B] text-white uppercase font-medium tracking-widest"
+                        class="bg-[#001A52] text-white uppercase font-medium tracking-widest"
                     >
                         <th class="p-[1vw] text-[1vw]">
                             Products
@@ -36,12 +36,12 @@
                     <tbody>
                         <tr
                             *ngFor="let cItem of cart; let i = index"
-                            class="relative border-b-2"
+                            class="relative border-b-2 bg-white text-[#001A52]"
                         >
                             <td class="flex my-[0.5vw] gap-10">
                                 <div class="w-[15vw] h-[10vw]">
                                     <img
-                                        class="object-cover w-full h-full"
+                                        class="object-contain w-full h-full"
                                         src="{{ cItem.imageUrl }}"
                                         alt=""
                                     />
@@ -122,22 +122,22 @@
             <!-- purchase summary -->
             <div>
                 <div
-                    class="summary bg-white w-[20vw] flex-flex-col text-[#5F462B] text-[1vw] shadow-md flex flex-col"
+                    class="summary bg-white w-[20vw] flex-flex-col text-[#001A52] text-[1vw] shadow-md flex flex-col"
                 >
                     <div
                         class="mb-[1.1vw] w-[12vw] mx-auto"
                     >
-                        <h1 class="text-center pt-[1.5vw] text-[#5F462B] text-[1.3vw] font-medium">
+                        <h1 class="text-center pt-[1.5vw] text-[#001A52] text-[1.3vw] font-medium">
                             Purchase Summary
                         </h1>
                     </div>
-                    <div class="text-center py-[3vw] text-[#FFBC10] text-[4vw]">
+                    <div class="text-center py-[3vw] text-[#001A52] text-[4vw]">
                         $
                     </div>
 
                    <div class="px-[1.2vw] pb-[2vw]">
                     <div
-                    class="flex justify-between items-center border-b border-[#5F462B] py-[0.5vw]"
+                    class="flex justify-between items-center border-b border-[#001A52] py-[0.5vw]"
                 >
                     <div>Subtotal</div>
                     <div>
@@ -147,13 +147,13 @@
                     </div>
                 </div>
                 <div
-                    class="flex justify-between items-center border-b border-[#5F462B] py-[0.5vw]"
+                    class="flex justify-between items-center border-b border-[#001A52] py-[0.5vw]"
                 >
                     <div>Tax(1.5%)</div>
                     <div>{{ (grandTotal / 100) * 1.5 | currency }}</div>
                 </div>
                 <div
-                    class="flex justify-between items-center border-b border-[#5F462B] py-[0.4vw] my-[0.2vw] font-bold"
+                    class="flex justify-between items-center border-b border-[#001A52] py-[0.4vw] my-[0.2vw] font-bold"
                 >
                     <div>Total Due</div>
                     <div>{{ grandTotal | currency }}</div>
@@ -163,7 +163,7 @@
                     <div class="flex justify-end mt-auto">
                         <button
                         routerLink="/checkout"
-                        class="text-[#FFBC10] flex justify-between py-[0.4vw] px-[0.6vw] bg-[#5F462B] items-center w-full ml-7 shadow-xl"
+                        class="text-[#fff] flex justify-between py-[0.4vw] px-[0.6vw] bg-[#001A52] items-center w-full ml-7 shadow-xl"
                     >
                         Check Out
                         <mat-icon>check</mat-icon>
@@ -173,7 +173,7 @@
 
                 <div class="text-center pt-[2vw]">
                     <button 
-                    class=" bg-[#FFBC10] text-[#5F462B] p-[0.3vw] text-[1vw] w-full flex items-center justify-center"
+                    class=" bg-[#001A52] text-[#ffff] p-[0.3vw] text-[1vw] w-full flex items-center justify-center"
                         (click)="emptyCart()"
                         routerLink="/menu"
                     >
@@ -223,14 +223,14 @@
         </div>
     </div>
 
-     <section *ngIf="cart.length < 1" class="bg-[#EAEAE6] h-[100vh] flex justify-center flex-col">
-        <h1 class="text-5xl text-center text-[#5F462B] py-10">Your Cart is Empty</h1>
+     <section *ngIf="cart.length < 1" class="bg-[#E7F1F8] h-[100vh] flex justify-center flex-col">
+        <h1 class="text-5xl text-center text-[#001A52] py-10">Your Cart is Empty</h1>
         <div class="mx-auto ">
             <img src="/assets/img/trolly.svg" alt="trolly" class="pl-[175px]">
         </div>
-        <div class="flex justify-center py-10 mt-10 border-t-2 border-t-[#5F462B] w-[40%] mx-auto">
+        <div class="flex justify-center py-10 mt-10 border-t-2 border-t-[#001A52] w-[40%] mx-auto">
             <button routerLink="/menu"
-            class="py-10 px-20 bg-[#5F462B] block w-fit text-white font-medium text-4xl"
+            class="py-10 px-20 bg-[#001A52] block w-fit text-white font-medium text-4xl"
             >Order Now</button>
         </div>
      </section>
