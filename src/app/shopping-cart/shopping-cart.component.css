@@ -10,7 +10,64 @@
     z-index: 999;
     top: 0;
     width: 100%;
+    border-radius: 500px;
 }
+
+.scroll-table .test {
+    width: 95%;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.scroll-table .test .left {
+    padding-left: 15px;
+}
+
+.scroll-table .test .right {
+    margin-left: auto;
+}
+
+.scroll-table .test .right .headers {
+    padding: 15px 30px;
+}
+
+.scroll-table .body {
+    padding: 10px;
+}
+
+.scroll-table .body .card {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 0px 10px 15px;
+}
+
+.scroll-table .body .card .name {
+ margin-bottom: 10px;
+}
+
+.scroll-table .body .card .dets {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 15px
+}
+
+
+/*----remove all button styles----*/
+
+.rm_Btn button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 6px 10px;
+}
+
+/*--End of Edited changes--*/
+
 .summary{
     position: relative;
 }
