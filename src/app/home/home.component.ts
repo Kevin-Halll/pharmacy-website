@@ -23,22 +23,8 @@ export class HomeComponent implements OnInit {
 	cart: any[] = [];
 	pageLimit1 = 8;
 	pageLimit2 = 5;
+	Product: any;
 
-	Product: Product = {
-		id: '',
-		name: '',
-		image: "https://d1cft8rz0k7w99.cloudfront.net/n/8/f/c/0/8fc026cdc36fe20694f1990b809ba97e91a73f81_Overthecountermedication_104918_01.png",
-		description: '',
-		price: '',
-		rating: 0,
-	};
-		
-	SubCategory: Subcategory = {
-		id: '',
-		name: '',
-	};
-	product: Product[] | undefined;
-	
 	
 	public get pageLimit() : number {
 		return this.width <= 1024 && this.width > this.height ? this.pageLimit1 : this.width > this.height && this.width > 1024 ? this.pageLimit1 : this.pageLimit2;
@@ -63,7 +49,6 @@ export class HomeComponent implements OnInit {
 
 	ngOnInit() {
 		this.startUp();
-		this.getProduct();
 	}
 
 	startUp() {
@@ -86,16 +71,6 @@ export class HomeComponent implements OnInit {
 		});
 	}
 
-	getProduct(): void {
-		this.productService.getAll().subscribe(
-			(data) => {
-				this.product = data;
-				console.log(data);
-			}
-		);
-	}
-
-	
 	changePage(event: any, property: string) {
 		this[(property + '_currentPage') as keyof this] = event.pageIndex;
 		this.pageLimit = event.pageSize;
