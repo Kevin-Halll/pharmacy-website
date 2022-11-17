@@ -1,4 +1,4 @@
-import {
+jimport {
     AfterViewInit,
     Component,
     Input,
@@ -22,12 +22,21 @@ import { CartService } from '../cart.service';
                     <div
                         class="m-h-inner flex flex-wrap md:flex-nowrap md:justify-around w-full"
                     >
-                        <div class="logo w-full md:w-fit">
+                        <div class="flex justify-left flex-row logo w-full md:w-fit   ">
                             <a
-                                href="/"
-                                class="text-[50px] text-center md:text-left  "
-                                >Amber Eats</a
-                            >
+                            
+>
+<div class="w-fit flex items-center gap-x-5 mx-auto md:mr-auto
+ ">
+
+    <img src="assets/img/logo.jpg">
+    <span >
+Amber Pharma
+
+</span>
+</div>
+
+                                </a>
                         </div>
                         <div
                             class="navigation flex md:justify-end mx-auto md:mx-0  "
@@ -43,23 +52,23 @@ import { CartService } from '../cart.service';
                             <button
                                 mat-button
                                 class="no-hover-effect"
-                                routerLink="/menu"
+                                routerLink="/home"
                             >
-                                Menu
+                                Home
                             </button>
                             <button
                                 mat-button
                                 class="no-hover-effect"
                                 routerLink="/gallery"
                             >
-                                Gallery
+                                Product
                             </button>
                             <button
                                 mat-button
                                 class="no-hover-effect"
                                 routerLink="/aboutus"
                             >
-                                About
+                                About Us
                             </button>
                             <button
                                 mat-button
@@ -80,8 +89,7 @@ import { CartService } from '../cart.service';
                                             ? cartService.getCartCount()
                                             : null
                                     "
-                                    >shopping_cart</mat-icon
-                                >
+                                    >shopping_cart</mat-icon>
                             </button>
                         </div>
                     </div>
@@ -102,7 +110,7 @@ import { CartService } from '../cart.service';
             }
             ::ng-deep .mat-badge-content {
                 background: rgba(0, 0, 0, 0.5);
-                color: white;
+                color: #e0a04f;
             }
             .main-container {
                 min-width: 7;
@@ -149,19 +157,19 @@ import { CartService } from '../cart.service';
                 min-height: 88px;
                 justify-content: space-between;
                 padding: 0 !important;
-                background-color: transparent;
+                background-color: #2b2a2a38;
             }
 
             .logo a {
                 display: block;
                 width: 100%;
                 height: 100%;
-                font-family: 'Sacramento', cursive;
+                font-family: 'Inter';
                 color: white;
                 text-decoration: none;
             }
             .navigation button {
-                font-size: 14px;
+                font-size: 16px;
                 font-weight: bold;
                 letter-spacing: 2px;
             }
@@ -170,7 +178,7 @@ import { CartService } from '../cart.service';
             }
 
             .navigation ::ng-deep .mat-button:hover {
-                color: #e0a04f;
+                color: white;
             }
 
             ::ng-deep .mat-button-ripple.mat-ripple {
@@ -183,10 +191,10 @@ import { CartService } from '../cart.service';
 
             .sticky-nav .logo a,
             .sticky-nav .navigation ::ng-deep .mat-button {
-                color: #463420;
+                color: #3182CE;
             }
             .header-change {
-                background: #5f462b;
+                background: #3182CE;
                 display: block;
                 position: relative;
             }
