@@ -1,0 +1,63 @@
+.brands-section {
+	display: grid;
+	grid-template: auto / 2fr 8fr;
+	padding-block: 5rem;
+	background-color: white;
+}
+
+.brands-section .brand-item:not(:first-of-type) {
+	margin-left: 2rem;
+}
+
+.brand-item {
+	width: 142px;
+	height: 100px;
+}
+
+.brand-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	filter: grayscale(1);
+	transition: filter 250ms ease;
+}
+
+.brand-item img:hover {
+	filter: grayscale(0);
+}
+
+.product-filter-card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background: linear-gradient(to right, #3182ce, rgba(0 0 0 / 0.5)), url("/assets/img/hero_banner.png");
+	padding: 20px;
+	border-radius: 20px;
+	height: 250px;
+}
+
+.product-filter-card h1 {
+	color: white;
+	font-weight: 900;
+	font-size: 25px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.product-button {
+	--button-size: 15px;
+
+	padding-inline: calc(var(--button-size) * 2);
+	padding-block: var(--button-size);
+	color: white;
+	background-color: #001a52;
+	border-radius: 30px;
+}
+
+.banner {
+	@apply flex justify-center items-center flex-col min-h-[375px] h-[60vh];
+	background: linear-gradient(#001a5299, #001a5299), url("/assets/img/banner1.png");
+	background-size: cover;
+	background-position: center;
+}
