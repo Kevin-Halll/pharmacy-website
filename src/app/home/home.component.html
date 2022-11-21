@@ -8,8 +8,7 @@
 			</div>
 			<img
 				[class]="['w-full', width > height ? 'h-[30vh]' : 'h-[15vh]', 'object-cover', 'brightness-50']"
-				src="https://images.squarespace-cdn.com/content/v1/54fb1c14e4b0a61cf908cda9/1493775536169-NHL7W2XEILCX32552IFJ/charcuterie-lite.jpg?format=1500w"
-			 />
+				src="https://images.squarespace-cdn.com/content/v1/54fb1c14e4b0a61cf908cda9/1493775536169-NHL7W2XEILCX32552IFJ/charcuterie-lite.jpg?format=1500w" />
 		</div>
 	</section>
 
@@ -39,9 +38,7 @@
 											{{ product.name | lowercase }}
 										</div>
 
-										<p class="px-8 text-[#5F462B]">
-											{{(product.description | slice: 0:130)}}<span *ngIf="product.description.length > 130">...</span>
-										</p>
+										<p class="px-8 text-[#5F462B]">{{ product.description | slice: 0:130 }}<span *ngIf="product.description.length > 130">...</span></p>
 
 										<div class="mt-auto">
 											<div class="flex justify-between items-center">
@@ -94,9 +91,7 @@
 											{{ product.name | lowercase }}
 										</div>
 
-										<p class="px-8 text-[#5F462B]">
-											{{(product.description | slice: 0:130)}}<span *ngIf="product.description.length > 130">...</span>
-										</p>
+										<p class="px-8 text-[#5F462B]">{{ product.description | slice: 0:130 }}<span *ngIf="product.description.length > 130">...</span></p>
 
 										<div class="mt-auto">
 											<div class="flex justify-between items-center">
@@ -149,9 +144,7 @@
 											{{ product.name | lowercase }}
 										</div>
 
-										<p class="px-8 text-[#5F462B]">
-											{{(product.description | slice: 0:130)}}<span *ngIf="product.description.length > 130">...</span>
-										</p>
+										<p class="px-8 text-[#5F462B]">{{ product.description | slice: 0:130 }}<span *ngIf="product.description.length > 130">...</span></p>
 
 										<div class="mt-auto">
 											<div class="flex justify-between items-center">
@@ -204,9 +197,7 @@
 											{{ product.name | lowercase }}
 										</div>
 
-										<p class="px-8 text-[#5F462B]">
-											{{(product.description | slice: 0:130)}}<span *ngIf="product.description.length > 130">...</span>
-										</p>
+										<p class="px-8 text-[#5F462B]">{{ product.description | slice: 0:130 }}<span *ngIf="product.description.length > 130">...</span></p>
 
 										<div class="mt-auto">
 											<div class="flex justify-between items-center">
@@ -259,9 +250,7 @@
 											{{ product.name | lowercase }}
 										</div>
 
-										<p class="px-8 text-[#5F462B]">
-											{{(product.description | slice: 0:130)}}<span *ngIf="product.description.length > 130">...</span>
-										</p>
+										<p class="px-8 text-[#5F462B]">{{ product.description | slice: 0:130 }}<span *ngIf="product.description.length > 130">...</span></p>
 
 										<div class="mt-auto">
 											<div class="flex justify-between items-center">

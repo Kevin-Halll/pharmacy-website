@@ -1,127 +1,97 @@
-<!-- hero -->
-<div
-    class="relative text-white h-[691px] flex justify-center items-center overflow-hidden"
->
-    <div class="absolute top-0 left-0 bottom-0 right-0">
-        <app-slider
-            [images]="images"
-            [autoSlide]="true"
-            [controls]="false"
-        ></app-slider>
-    </div>
-    <!-- welcome-text -->
-    <div
-        class="z-10 flex w-full h-full justify-center items-center bg-gradient-to-r from-[#0000003f] via-[#0000007a] to-[#0000003b]"
-    >
-        <h1
-            class="max-w-[700px] text-[80px] text-center font-bold drop-shadow-2xl font-['Italiana']"
-        >
-            WELCOME <br />TO <br />
-            AMBER EATS
-        </h1>
-    </div>
-    <!-- welcome-text-end -->
+<div class="relative text-white h-[500px] flex justify-center items-center overflow-hidden">
+	<div class="absolute top-0 left-0 bottom-0 right-0 transition-all">
+		<app-slider [images]="images" [autoSlide]="true" [controls]="false"></app-slider>
+	</div>
+	<!-- Welcome Text -->
+	<div class="relative z-10 flex w-full bg-gradient-to-r from-[#0000003f] via-[#0000007a] to-[#0000003b]">
+		<h1 class="absolute top-[-100px] right-32 max-w-[700px] text-[80px] text-left font-semibold drop-shadow-2xl">Amber Care Pharmaceutical</h1>
+	</div>
 </div>
 
 <main>
-    <!-- order-section -->
-    <section
-        class="text-center bg-[#463420] text-[#fff3b0] font-bold h-full mb-20"
-    >
-        <div class="w-4/5 mx-auto py-16">
-            <p class="border-b-[6px] border-b-white text-[40px] text-white">
-                IN-STORE PICKUP, CURBSIDE OR DELIVERY <br />
-                <span class="font-bold"> START YOUR ORDER NOW </span>
-            </p>
-            <button
-                class="bg-[#5F462B] py-7 px-16 max-w-[350px] m-10 text-[20px] shadow-md text-white"
-                routerLink="/menu"
-            >
-                ORDER NOW
-            </button>
-        </div>
-    </section>
-    <!-- order-section-end -->
+	<!-- Brands -->
+	<section class="brands-section -mt-[10px]">
+		<p class="flex justify-center items-center text-[22px] font-bold text-[#001A52]">Popular Brands</p>
+		<div class="slider flex overflow-x-scroll">
+			<div *ngFor="let brand of brands; let i = index" [matTooltip]="brand.name" matTooltipPosition="above" class="brand-item">
+				<img [src]="brand.image ?? '/assets/img/banner1.png'" />
+			</div>
+		</div>
+	</section>
 
-    <section
-        class="grid grid-cols-1 md:grid-cols-2 gap-10 overflow-hidden py-32 px-14 w-full"
-    >
-        <!-- view-menu -->
-        <div
-            class="flex flex-wrap items-center w-4/5 justify-self-center justify-between"
-        >
-            <div class="flex items-center justify-around w-full">
-                <h2 class="text-[#463420] text-6xl font-['Italiana'] font-bold">
-                    WHAT'S ON <br />
-                    <span class="font-bold">OUR MENU</span>
-                </h2>
-                <p class="w-[250px] h-3 bg-[#463420] mx-auto shadow-2xl"></p>
-            </div>
-            <div class="w-full font-sans">
-                <ul class="text-3xl">
-                    <h3 class="italic">
-                        <span class="text-4xl">The Fastest Treat </span>, as you
-                        order you see-it.
-                    </h3>
-                    <li class="p-4">Craving an exquisite dish?</li>
-                    <li class="p-4">Maybe local street foods?</li>
-                    <li class="p-4">Amber eats has a menu just for you.</li>
-                </ul>
-            </div>
-            <button
-                class="bg-[#5F462B] py-5 px-12 w-[250px] text-[16px] text-white font-bold h-[74px] mb-20"
-                routerLink="/menu"
-            >
-                VIEW MENU
-            </button>
-        </div>
-        <div class="w-4/5 mx-auto">
-            <img
-                src="https://flavorverse.com/wp-content/uploads/2022/05/Jamaican-Food-640x480.jpg"
-                alt=""
-                class="w-full h-full object-cover"
-            />
-        </div>
-        <!-- view-menu-end -->
+	<!-- Quick Product Filter -->
+	<section class="grid grid-cols-3 gap-20 w-11/12 mx-auto my-[5rem]">
+		<div class="product-filter-card">
+			<h1>Hygine</h1>
+			<button [routerLink]="['#!']" class="product-button">Show Products ({{ productsOfType.length }})</button>
+		</div>
+		<div class="product-filter-card">
+			<h1>Hygine</h1>
+			<button [routerLink]="['#!']" class="product-button">Show Products ({{ productsOfType.length - 40 }})</button>
+		</div>
+		<div class="product-filter-card">
+			<h1>Hygine</h1>
+			<button [routerLink]="['#!']" class="product-button">Show Products ({{ productsOfType.length - 57 }})</button>
+		</div>
+	</section>
 
-        <!-- contact us -->
-        <div class="w-4/5 mx-auto">
-            <img
-                src="https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt=""
-                class="w-full h-full object-cover"
-            />
-        </div>
-        <div class="flex flex-wrap items-center w-4/5 justify-self-center">
-            <div
-                class="flex items-center justify-between w-full flex-row-reverse"
-            >
-                <h3 class="text-[#463420] text-6xl mx-auto font-['Italiana'] font-bold">
-                    GET
-                    <span class="font-bold">IN TOUCH</span>
-                </h3>
-                <p class="w-[250px] h-3 bg-[#463420] shadow-2xl"></p>
-            </div>
+	<!-- Promotions -->
+	<!-- <app-promotion-section></app-promotion-section> -->
 
-            <div class="text-[17px] w-max">
-                <p class="text-justify font-sans">
-                    From our very first day, we’ve always tried to make
-                    decisions that our customers could be proud of. As such we
-                    ensure
-                    <span class="italic font-semibold"> fastest & safest </span>
-                    delivery services to make sure you, our satisfied customer
-                    is satisfied.
-                </p>
-            </div>
-            <button
-                class="bg-[#5F462B] py-5 px-16 max-w-[250px] text-[16px] text-white font-bold h-[74px] mb-20"
-                routerLink="/about"
-            >
-                CONTACT US
-            </button>
-        </div>
-        <!-- contact-us-end -->
-    </section>
+	<!-- Banner -->
+	<section class="banner">
+		<h1 class="text-center text-white font-bold text-[50px]">
+			Become a Member <br />
+			and get up to 50% off
+		</h1>
+		<p class="text-white my-24">As a member you'll get the latest update on our promotions and great deal offers.</p>
+		<button class="product-button !px-52">Become A Member</button>
+	</section>
+
+	<!-- News Articles -->
+	<section class="py-32">
+		<h1 class="text-center text-[#001A52] text-[35px] mb-20 font-bold">News Article</h1>
+		<div class="grid grid-cols-4 gap-14 w-11/12 mx-auto">
+			<div class="news-article bg-white rounded-3xl overflow-clip shadow-lg">
+				<img src="/assets/img/thumbsup_doctor.png" alt="" class="w-[375px] h-[220px] rounded-xl object-cover" />
+				<div class="article-info py-10 px-8">
+					<h1 class="text-[#001A52] text-[20px] font-bold">The Latest Medical Research News</h1>
+					<p class="text-[#001A52] my-10">
+						This is the second part of the SMM starter pack series of articles. If you made it this far, you must be willing to learn about promoting business through social media.
+					</p>
+					<div class="grid place-items-center"><button class="product-button !px-16" style="--button-size: 10px">Read More</button></div>
+				</div>
+			</div>
+			<div class="news-article bg-white rounded-3xl overflow-clip shadow-lg">
+				<img src="/assets/img/thumbsup_doctor.png" alt="" class="w-[375px] h-[220px] rounded-xl object-cover" />
+				<div class="article-info py-10 px-8">
+					<h1 class="text-[#001A52] text-[20px] font-bold">The Latest Medical Research News</h1>
+					<p class="text-[#001A52] my-10">
+						This is the second part of the SMM starter pack series of articles. If you made it this far, you must be willing to learn about promoting business through social media.
+					</p>
+					<div class="grid place-items-center"><button class="product-button !px-16" style="--button-size: 10px">Read More</button></div>
+				</div>
+			</div>
+			<div class="news-article bg-white rounded-3xl overflow-clip shadow-lg">
+				<img src="/assets/img/thumbsup_doctor.png" alt="" class="w-[375px] h-[220px] rounded-xl object-cover" />
+				<div class="article-info py-10 px-8">
+					<h1 class="text-[#001A52] text-[20px] font-bold">The Latest Medical Research News</h1>
+					<p class="text-[#001A52] my-10">
+						This is the second part of the SMM starter pack series of articles. If you made it this far, you must be willing to learn about promoting business through social media.
+					</p>
+					<div class="grid place-items-center"><button class="product-button !px-16" style="--button-size: 10px">Read More</button></div>
+				</div>
+			</div>
+			<div class="news-article bg-white rounded-3xl overflow-clip shadow-lg">
+				<img src="/assets/img/thumbsup_doctor.png" alt="" class="w-[375px] h-[220px] rounded-xl object-cover" />
+				<div class="article-info py-10 px-8">
+					<h1 class="text-[#001A52] text-[20px] font-bold">The Latest Medical Research News</h1>
+					<p class="text-[#001A52] my-10">
+						This is the second part of the SMM starter pack series of articles. If you made it this far, you must be willing to learn about promoting business through social media.
+					</p>
+					<div class="grid place-items-center"><button class="product-button !px-16" style="--button-size: 10px">Read More</button></div>
+				</div>
+			</div>
+		</div>
+	</section>
 </main>
-
-<!-- hero-end -->
