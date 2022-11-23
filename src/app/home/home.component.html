@@ -28,7 +28,7 @@
 										: ['grid', 'grid-cols-1', 'gap-16', 'py-[1vw]']
 								">
 								<mat-spinner *ngIf="Category.length === 0"></mat-spinner>
-								<div *ngFor="let product of Category | slice: Category_currentPage * pageLimit:Category_currentPage * pageLimit + pageLimit">
+								<div *ngFor="let Category of Category | slice: Category_currentPage * pageLimit:Category_currentPage * pageLimit + pageLimit">
 									<!-- New Card Design Starts -->
 									<div class="w-full h-[460px] bg-[#F5F5F5] border flex flex-col shadow-lg">
 										<div class="h-[40%] cursor-pointer" [routerLink]="'/details/' + Product.id">
