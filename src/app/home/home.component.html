@@ -3,12 +3,12 @@
 		<div class="relative w-[100%]">
 			<div class="absolute z-10 flex justify-center items-center w-full h-full capitalize">
 				<div class="border-b-4 border-b-white w-[60%] m-auto">
-					<h1 class="text-white text-center text-[3vw] pb-3 font-['Italiana'] font-bold">Check out our tantalizing menu options</h1>
+					<h1 class="text-white text-center text-[3vw] pb-3 font-['Italiana'] font-bold">Check out our wide range of products</h1>
 				</div>
 			</div>
 			<img
 				[class]="['w-full', width > height ? 'h-[30vh]' : 'h-[15vh]', 'object-cover', 'brightness-50']"
-				src="https://images.squarespace-cdn.com/content/v1/54fb1c14e4b0a61cf908cda9/1493775536169-NHL7W2XEILCX32552IFJ/charcuterie-lite.jpg?format=1500w" />
+				src="https://images.unsplash.com/photo-1628771065518-0d82f1938462?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
 		</div>
 	</section>
 
@@ -29,31 +29,26 @@
 								<mat-spinner *ngIf="appetizers.length === 0"></mat-spinner>
 								<div *ngFor="let product of appetizers | slice: appetizers_currentPage * pageLimit:appetizers_currentPage * pageLimit + pageLimit">
 									<!-- New Card Design Starts -->
-									<div class="w-full h-[460px] bg-[#F5F5F5] border flex flex-col shadow-lg">
-										<div class="h-[40%] cursor-pointer" [routerLink]="'/details/' + product.id">
-											<img src="{{ product.imageUrl }}" class="w-full h-full object-cover" />
+									<div class="w-full h-[460px] bg-[#F5F5F5] border flex flex-col shadow-lg px-5 py-8 rounded-lg">
+										<div class="h-[58%] cursor-pointer" [routerLink]="'/details/' + product.id">
+											<img src="{{ product.imageUrl }}" class="w-full h-full object-contain" />
 										</div>
 
-										<div class="py-5 pl-8 text-3xl font-bold text-[#5F462B] capitalize">
+										<div class="py-5 text-3xl font-bold text-[#133791] capitalize">
 											{{ product.name | lowercase }}
 										</div>
 
-										<p class="px-8 text-[#5F462B]">{{ product.description | slice: 0:130 }}<span *ngIf="product.description.length > 130">...</span></p>
+										<p class="">{{ product.description | slice: 0:70 }}<span *ngIf="product.description.length > 130">...</span></p>
 
 										<div class="mt-auto">
 											<div class="flex justify-between items-center">
-												<p class="text-[#5F462B] font-bold py-1 pl-7">
+												<p class="text-[#133791] font-bold">
 													{{ product.price | currency }}
 												</p>
-												<span class="rating">
-													<app-rating [starsArr]="product.ratings" [id]="product.id" (click)="startUp()"></app-rating>
-												</span>
-											</div>
-											<div class="flex justify-end">
-												<button class="text-[#FFBC10] flex justify-between p-3 bg-[#5F462B] items-center w-full ml-7 shadow-xl" (click)="addProduct(product.id)">
+
+												<button class="text-[#fff] py-3 bg-[#133791] text-center px-8 shadow-xl rounded-full" (click)="addProduct(product.id)">
 													Add To Cart
-													<mat-icon>add</mat-icon>
-												</button>
+												</button>	
 											</div>
 										</div>
 									</div>

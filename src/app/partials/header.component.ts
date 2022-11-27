@@ -31,7 +31,7 @@ import { CartService } from '../cart.service';
                                 </button> -->
 
 							<button mat-button class="no-hover-effect" routerLink="/home">Home</button>
-							<button mat-button class="no-hover-effect" routerLink="/gallery">Product</button>
+							<button mat-button class="no-hover-effect" routerLink="/products">Product</button>
 							<button mat-button class="no-hover-effect" routerLink="/aboutus">About Us</button>
 							<button mat-button class="no-hover-effect " routerLink="/about">Contact Us</button>
 
