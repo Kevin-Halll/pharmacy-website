@@ -29,7 +29,7 @@
 								<mat-spinner *ngIf="appetizers.length === 0"></mat-spinner>
 								<div *ngFor="let product of appetizers | slice: appetizers_currentPage * pageLimit:appetizers_currentPage * pageLimit + pageLimit">
 									<!-- New Card Design Starts -->
-									<div class="w-full h-[460px] bg-[#F5F5F5] border flex flex-col shadow-lg px-5 py-8 rounded-lg">
+									<div class="w-full h-[460px] bg-[#F5F5F5] border flex flex-col shadow-lg px-5 py-8 rounded-3xl">
 										<div class="h-[58%] cursor-pointer" [routerLink]="'/details/' + product.id">
 											<img src="{{ product.imageUrl }}" class="w-full h-full object-contain" />
 										</div>
@@ -77,31 +77,26 @@
 								<mat-spinner *ngIf="entrees.length === 0"></mat-spinner>
 								<div *ngFor="let product of entrees | slice: entrees_currentPage * pageLimit:entrees_currentPage * pageLimit + pageLimit">
 									<!-- New Card Design Starts -->
-									<div class="w-full h-[460px] bg-[#F5F5F5] border flex flex-col shadow-lg">
-										<div class="h-[40%] cursor-pointer" [routerLink]="'/details/' + product.id">
-											<img src="{{ product.imageUrl }}" class="w-full h-full object-cover" />
+									<div class="w-full h-[460px] bg-[#F5F5F5] border flex flex-col shadow-lg px-5 py-8 rounded-3xl">
+										<div class="h-[58%] cursor-pointer" [routerLink]="'/details/' + product.id">
+											<img src="{{ product.imageUrl }}" class="w-full h-full object-contain" />
 										</div>
 
-										<div class="py-5 pl-8 text-3xl font-bold text-[#5F462B] capitalize">
+										<div class="py-5 text-3xl font-bold text-[#133791] capitalize">
 											{{ product.name | lowercase }}
 										</div>
 
-										<p class="px-8 text-[#5F462B]">{{ product.description | slice: 0:130 }}<span *ngIf="product.description.length > 130">...</span></p>
+										<p class="">{{ product.description | slice: 0:70 }}<span *ngIf="product.description.length > 130">...</span></p>
 
 										<div class="mt-auto">
 											<div class="flex justify-between items-center">
-												<p class="text-[#5F462B] font-bold py-1 pl-7">
+												<p class="text-[#133791] font-bold">
 													{{ product.price | currency }}
 												</p>
-												<span class="rating">
-													<app-rating [starsArr]="product.ratings" [id]="product.id"></app-rating>
-												</span>
-											</div>
-											<div class="flex justify-end">
-												<button class="text-[#FFBC10] flex justify-between p-3 bg-[#5F462B] items-center w-full ml-7 shadow-xl" (click)="addProduct(product.id)">
+
+												<button class="text-[#fff] py-3 bg-[#133791] text-center px-8 shadow-xl rounded-full" (click)="addProduct(product.id)">
 													Add To Cart
-													<mat-icon>add</mat-icon>
-												</button>
+												</button>	
 											</div>
 										</div>
 									</div>
@@ -130,31 +125,26 @@
 								<mat-spinner *ngIf="sides.length === 0"></mat-spinner>
 								<div *ngFor="let product of sides | slice: sides_currentPage * pageLimit:sides_currentPage * pageLimit + pageLimit">
 									<!-- New Card Design Starts -->
-									<div class="w-full h-[460px] bg-[#F5F5F5] border flex flex-col shadow-lg">
-										<div class="h-[40%] cursor-pointer" [routerLink]="'/details/' + product.id">
-											<img src="{{ product.imageUrl }}" class="h-full w-full object-cover" />
+									<div class="w-full h-[460px] bg-[#F5F5F5] border flex flex-col shadow-lg px-5 py-8 rounded-3xl">
+										<div class="h-[58%] cursor-pointer" [routerLink]="'/details/' + product.id">
+											<img src="{{ product.imageUrl }}" class="w-full h-full object-contain" />
 										</div>
 
-										<div class="py-5 pl-8 text-3xl font-bold text-[#5F462B] capitalize">
+										<div class="py-5 text-3xl font-bold text-[#133791] capitalize">
 											{{ product.name | lowercase }}
 										</div>
 
-										<p class="px-8 text-[#5F462B]">{{ product.description | slice: 0:130 }}<span *ngIf="product.description.length > 130">...</span></p>
+										<p class="">{{ product.description | slice: 0:70 }}<span *ngIf="product.description.length > 130">...</span></p>
 
 										<div class="mt-auto">
 											<div class="flex justify-between items-center">
-												<p class="text-[#5F462B] font-bold py-1 pl-7">
+												<p class="text-[#133791] font-bold">
 													{{ product.price | currency }}
 												</p>
-												<span class="rating">
-													<app-rating [starsArr]="product.ratings" [id]="product.id"></app-rating>
-												</span>
-											</div>
-											<div class="flex justify-end">
-												<button class="text-[#FFBC10] flex justify-between p-3 bg-[#5F462B] items-center w-full ml-7 shadow-xl" (click)="addProduct(product.id)">
+
+												<button class="text-[#fff] py-3 bg-[#133791] text-center px-8 shadow-xl rounded-full" (click)="addProduct(product.id)">
 													Add To Cart
-													<mat-icon>add</mat-icon>
-												</button>
+												</button>	
 											</div>
 										</div>
 									</div>
@@ -183,31 +173,26 @@
 								<mat-spinner *ngIf="desserts.length === 0"></mat-spinner>
 								<div *ngFor="let product of desserts | slice: desserts_currentPage * pageLimit:desserts_currentPage * pageLimit + pageLimit">
 									<!-- New Card Design Starts -->
-									<div class="w-full h-[460px] bg-[#F5F5F5] border flex flex-col shadow-lg">
-										<div class="h-[40%] cursor-pointer" [routerLink]="'/details/' + product.id">
-											<img src="{{ product.imageUrl }}" class="w-full h-full object-cover" />
+									<div class="w-full h-[460px] bg-[#F5F5F5] border flex flex-col shadow-lg px-5 py-8 rounded-3xl">
+										<div class="h-[58%] cursor-pointer" [routerLink]="'/details/' + product.id">
+											<img src="{{ product.imageUrl }}" class="w-full h-full object-contain" />
 										</div>
 
-										<div class="py-5 pl-8 text-3xl font-bold text-[#5F462B] capitalize">
+										<div class="py-5 text-3xl font-bold text-[#133791] capitalize">
 											{{ product.name | lowercase }}
 										</div>
 
-										<p class="px-8 text-[#5F462B]">{{ product.description | slice: 0:130 }}<span *ngIf="product.description.length > 130">...</span></p>
+										<p class="">{{ product.description | slice: 0:70 }}<span *ngIf="product.description.length > 130">...</span></p>
 
 										<div class="mt-auto">
 											<div class="flex justify-between items-center">
-												<p class="text-[#5F462B] font-bold py-1 pl-7">
+												<p class="text-[#133791] font-bold">
 													{{ product.price | currency }}
 												</p>
-												<span class="rating">
-													<app-rating [starsArr]="product.ratings" [id]="product.id"></app-rating>
-												</span>
-											</div>
-											<div class="flex justify-end">
-												<button class="text-[#FFBC10] flex justify-between p-3 bg-[#5F462B] items-center w-full ml-7 shadow-xl" (click)="addProduct(product.id)">
+
+												<button class="text-[#fff] py-3 bg-[#133791] text-center px-8 shadow-xl rounded-full" (click)="addProduct(product.id)">
 													Add To Cart
-													<mat-icon>add</mat-icon>
-												</button>
+												</button>	
 											</div>
 										</div>
 									</div>
@@ -236,31 +221,26 @@
 								<mat-spinner *ngIf="beverages.length === 0"></mat-spinner>
 								<div *ngFor="let product of beverages | slice: beverages_currentPage * pageLimit:beverages_currentPage * pageLimit + pageLimit">
 									<!-- New Card Design Starts -->
-									<div class="w-full h-[460px] bg-[#F5F5F5] border flex flex-col shadow-lg">
-										<div class="h-[40%] cursor-pointer" [routerLink]="'/details/' + product.id">
-											<img src="{{ product.imageUrl }}" class="w-full h-full object-cover" />
+									<div class="w-full h-[460px] bg-[#F5F5F5] border flex flex-col shadow-lg px-5 py-8 rounded-3xl">
+										<div class="h-[58%] cursor-pointer" [routerLink]="'/details/' + product.id">
+											<img src="{{ product.imageUrl }}" class="w-full h-full object-contain" />
 										</div>
 
-										<div class="py-5 pl-8 text-3xl font-bold text-[#5F462B] capitalize">
+										<div class="py-5 text-3xl font-bold text-[#133791] capitalize">
 											{{ product.name | lowercase }}
 										</div>
 
-										<p class="px-8 text-[#5F462B]">{{ product.description | slice: 0:130 }}<span *ngIf="product.description.length > 130">...</span></p>
+										<p class="">{{ product.description | slice: 0:70 }}<span *ngIf="product.description.length > 130">...</span></p>
 
 										<div class="mt-auto">
 											<div class="flex justify-between items-center">
-												<p class="text-[#5F462B] font-bold py-1 pl-7">
+												<p class="text-[#133791] font-bold">
 													{{ product.price | currency }}
 												</p>
-												<span class="rating">
-													<app-rating [starsArr]="product.ratings" [id]="product.id"></app-rating>
-												</span>
-											</div>
-											<div class="flex justify-end">
-												<button class="text-[#FFBC10] flex justify-between p-3 bg-[#5F462B] items-center w-full ml-7 shadow-xl" (click)="addProduct(product.id)">
+
+												<button class="text-[#fff] py-3 bg-[#133791] text-center px-8 shadow-xl rounded-full" (click)="addProduct(product.id)">
 													Add To Cart
-													<mat-icon>add</mat-icon>
-												</button>
+												</button>	
 											</div>
 										</div>
 									</div>

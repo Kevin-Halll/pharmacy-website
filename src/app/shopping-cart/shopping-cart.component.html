@@ -23,7 +23,7 @@
             <table class="w-full" >
                 <div class="scroll-table">
                     <div
-                        class="test bg-[#001A52] text-white font-normal shadow-md tracking-widest w-full rounded-lg"
+                        class="test bg-[#001A52] text-white font-normal shadow-md tracking-widest w-full rounded-2xl"
                     >
                     <div class="left">
                         <th class="left p-[1vw] text-[1vw] font-normal">
@@ -40,7 +40,7 @@
                     <div class="body w-full">
                         <div
                             *ngFor="let cItem of cart; let i = index"
-                            class="card relative border-b-2 bg-white text-[#001A52] w-[95%] rounded-lg shadow-md"
+                            class="card relative border-b-2 bg-white text-[#001A52] w-[95%] rounded-2xl shadow-md"
                         >
                             <td class="flex my-[0.5vw] gap-10">
                                 <div class="w-[15vw] h-[10vw]">
@@ -129,7 +129,7 @@
             <!-- purchase summary -->
             <div>
                 <div
-                    class="summary bg-white w-[20vw] flex-flex-col text-[#001A52] text-[1vw] shadow-md flex flex-col"
+                    class="summary bg-white w-[20vw] flex-flex-col text-[#001A52] text-[1vw] shadow-md flex flex-col rounded-2xl"
                 >
                     <div
                         class="mb-[1.1vw] w-[12vw] mx-auto"
@@ -170,7 +170,7 @@
                     <div class="flex justify-end mt-auto">
                         <button
                         routerLink="/checkout"
-                        class="text-[#fff] flex justify-between py-[0.4vw] px-[0.6vw] bg-[#001A52] items-center w-full ml-7 shadow-xl rounded-lg"
+                        class="text-[#fff] flex justify-between py-[0.4vw] px-[0.6vw] bg-[#001A52] items-center w-full ml-7 shadow-xl rounded-2xl"
                     >
                         Check Out
                         <mat-icon>check</mat-icon>
@@ -180,7 +180,7 @@
 
                 <div class="rm_Btn text-center pt-[2vw]">
                     <button
-                    class=" bg-[#001A52] text-[#ffff] p-[0.3vw] text-[1vw] w-full flex items-center justify-center rounded-lg"
+                    class=" bg-[#001A52] text-[#ffff] p-[0.3vw] text-[1vw] w-full flex items-center justify-center rounded-2xl"
                         (click)="emptyCart()"
                         routerLink="/menu"
                     >
